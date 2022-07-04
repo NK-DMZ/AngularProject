@@ -1,0 +1,24 @@
+<div class="primordial">
+  <h2>原生方法获取数据</h2>
+  <h3>get使用</h3>
+  <p [innerHTML]="get_use"></p>
+  <h3>post使用</h3>
+  <p [innerHTML]="post_use"></p>
+  <h3>jsonp使用</h3>
+  <p [innerHTML]="jsonp_use"></p>
+  <h3>axios 使用</h3>
+  <p [innerHTML]="axios_use"></p>
+  <button (click)="getFun()">点击按钮get获取数据</button>
+  <button (click)="postFun()">点击按钮post获取数据</button>
+  <button (click)="jsonpFun()">通过jsonp获取数据</button>
+  <button (click)="axiosFunPackaging()">通过axios获取数据</button>
+  <br>
+
+  <ul class="trendingTab">
+    <h1>{{title}}</h1>
+    <li *ngFor="let item of get_list_subscribe">{{item.name}}</li>
+    <li *ngFor="let item of axios_list">{{item.name}}</li>
+    <p>{{post_resText}}</p>
+    <p>{{jsonp_resText.info}}</p>
+  </ul>
+</div>

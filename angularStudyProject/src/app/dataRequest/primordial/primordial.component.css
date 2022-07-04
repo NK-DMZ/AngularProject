@@ -1,0 +1,11 @@
+.primordial{
+    text-align: left;
+    margin: 0 auto;
+    width: 50%;
+}
+.trendingTab{
+  height: calc(30vh);
+}
+button{
+  margin:0 20px;
+}

@@ -1,0 +1,10 @@
+<div class="route_use">
+  <h1>路由使用步骤</h1>
+  <p [innerHTML]="route_use"></p>
+  <div class="views">
+    <a [routerLink]="['/routeOne']">路由1</a>
+    <a routerLink="/routeTwo">路由2</a>
+    <a routerLink="/routeThree" routerLinkActive="active">路由3</a>
+    <router-outlet></router-outlet>
+  </div>
+</div>

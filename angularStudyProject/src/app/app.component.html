@@ -1,0 +1,55 @@
+<div class="content">
+  <h1>Angular学习项目</h1>
+  <p><a href="#end">点击到达页尾</a></p>
+  <p><button (click)="changeLifeCycleBoolean()">是否启用生命周期函数组件</button></p>
+  <hr>
+  <app-lifecycle *ngIf="lifeCycleBoolean"></app-lifecycle>
+  <hr>
+  <app-data-use></app-data-use>
+  <hr>
+  <app-bind-data></app-bind-data>
+  <hr>
+  <app-form></app-form>
+  <hr>
+  <app-boolean></app-boolean>
+  <hr>
+  <div class="dom">
+    <app-dom-actions></app-dom-actions>
+    <app-dom-actions-help></app-dom-actions-help>
+    <hr>
+  </div>
+  <app-event></app-event>
+  <hr>
+  <app-introduce></app-introduce>
+  <hr>
+  <app-pipes></app-pipes>
+  <hr>
+  <app-search></app-search>
+  <hr>
+  <app-todo-list></app-todo-list>
+  <hr>
+  <div class="componentTransmit">
+    <app-parent-one></app-parent-one>
+    <app-parent-two></app-parent-two>
+    <app-parent-three></app-parent-three>
+    <hr>
+  </div>
+  <div class="asyn">
+    <app-asyn-way></app-asyn-way>
+    <hr>
+    <app-tools></app-tools>
+  </div>
+  <hr>
+  <app-primordial></app-primordial>
+  <hr>
+  <div class="route_use">
+    <app-route-use></app-route-use>
+    <hr>
+  </div>
+
+  <div id="end">
+    <p>页尾部分</p>
+  </div>
+</div>
+
+<router-outlet></router-outlet>

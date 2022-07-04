@@ -1,0 +1,16 @@
+.content{
+    text-align: center;
+}
+.slide{
+    overflow-x: hidden;
+}
+.asyn{
+    width: 80%;
+    margin: 0 auto;
+    background-color: deepskyblue;
+    padding-bottom: 20px;
+}
+.route_use{
+  margin-top: calc(-2.5vh);
+  background-color: rgb(168, 224, 168);
+}

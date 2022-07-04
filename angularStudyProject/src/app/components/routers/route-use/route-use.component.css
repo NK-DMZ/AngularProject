@@ -1,0 +1,14 @@
+.route_use a{
+  margin: calc(15vh);
+}
+.route_use p{
+  text-align: left;
+  margin-left: 40%;
+}
+.route_use{
+  width: 100%;
+  height: calc(40vh);
+}
+.active{
+  color: aqua;
+}

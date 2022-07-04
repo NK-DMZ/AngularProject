@@ -1,0 +1,10 @@
+.dataUse{
+    width: 80%;
+    margin: 0 auto;
+    text-align: left;
+    background-color: hsl(160, 100%, 75%,0.5);
+    padding-left: 5%;
+}
+h1{
+    color: rgb(134, 124, 240);
+}

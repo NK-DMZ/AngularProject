@@ -1,0 +1,25 @@
+<div class="domAction">
+  <div id="box">
+    <h3>这是原生js操作dom</h3>
+    this is box
+  </div>
+  <br>
+
+  <div id="box1" *ngIf="flag">
+    <h3>这是利用angular进行操作dom</h3>
+    这是box1，在ngAfterViewInit生命周期进行渲染，后面隐藏后没有进行渲染字体颜色
+  </div>
+  <br>
+  <div #myBox>
+    <h3>这是利用 ViewChild 实现操作dom</h3>
+    这是一个dom节点
+  </div>
+  <button (click)="changeFlag()">修改box1组件的显示和隐藏</button>
+
+  <app-dom-actions-help #domActionChild>
+    <h3>这是操作子组件</h3>
+  </app-dom-actions-help>
+  <button (click)="getClick()">点击获取子组件的方法</button>
+  <br>
+
+</div>

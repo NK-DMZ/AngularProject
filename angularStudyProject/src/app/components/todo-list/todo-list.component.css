@@ -1,0 +1,12 @@
+ul{
+    width: 400px;
+    margin:0 auto;
+    text-align: left;
+}
+li{
+    list-style: none;
+    height: 25px;
+}
+button{
+    float: right;
+}
