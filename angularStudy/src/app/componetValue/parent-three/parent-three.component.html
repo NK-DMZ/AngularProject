@@ -1,0 +1,12 @@
+<div class="parentThree">
+  <app-child-three (outer)="funChild($event)"></app-child-three>
+  <div style="text-align: left; margin: 0 auto;width: 50%;">
+    1.首先在子组件引入,Output,EventEmitter
+    <br>
+    2.然后声明一个outer变量等于EventEmitter
+    <br>
+    3.通过EventEmitter广播数据
+    <br>
+    4.在父组件监听广播事件
+  </div>
+</div>

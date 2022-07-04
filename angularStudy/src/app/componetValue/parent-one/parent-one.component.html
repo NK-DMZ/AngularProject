@@ -1,0 +1,9 @@
+<div class="parentOne">
+  <h2>父子传值(子组件通过Input修饰器获取父组件的属性与方法)， parent-one 是父组件， child-one 是子组件</h2>
+  <app-child-one [title]="title" [msg]="msg" [run]="run" [parent_One]="this"></app-child-one>
+  <p>
+    这里的title与msg都是父组件中的属性，这么直接传到子组件，run是父组件的方法，home是将父组件作为对象传递过去；
+  </p>
+
+  <br>
+</div>

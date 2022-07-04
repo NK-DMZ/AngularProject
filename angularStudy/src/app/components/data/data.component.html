@@ -1,0 +1,66 @@
+
+<h1 style="color: blueviolet;">数据绑定</h1>
+<div>
+  <h1>title属性的数据绑定</h1>
+  <div title="这是一个div">
+    <p>鼠标移动过来看看</p>
+    <p>{{chip}}</p>
+  </div>
+
+  <div [title]="student">
+    <p>小茗同学</p>
+  </div>
+  <hr>
+</div>
+
+<div>
+  <h1>字符串模板解析</h1>
+  <div>
+    {{htmlContent}}
+  </div>
+
+  <span [innerHTML]="htmlContent"></span>
+  <p [innerHTML]="htmlContent"></p>
+  <h1 [innerHTML]="htmlContent"></h1>
+  <textarea [innerHTML]="htmlContent"></textarea>
+  <hr>
+</div>
+
+<div>
+  <h1>angular模板运行简单运算</h1>
+  <p>1+3={{1+3}}</p>
+  <hr>
+</div>
+
+<div>
+  <h1>数据循环</h1>
+  <ul>
+    <li *ngFor="let item of arr" class="ulli">{{item}}</li>
+  </ul>
+  <p>{{chip}}</p>
+  <ul>
+    <p>带索引</p>
+    <li *ngFor="let item of arr;let key = index" class="ulli">{{key}}---{{item}}</li>
+  </ul>
+  <p>{{chip}}</p>
+  <ul>
+    <li *ngFor="let item of person" class="ulli">{{item.username}}---{{item.age}}</li>
+  </ul>
+  <p style="clear:both"></p>
+  <p>{{chip}}</p>
+  <ul>
+    <li *ngFor="let item of car" class="ulli">
+      <h3>{{item.brand}}</h3>
+      <p *ngFor="let itemCar of item.series">
+        {{itemCar.name}} --- {{itemCar.price}}
+      </p>
+    </li>
+  </ul>
+  <p style="clear:both"></p>
+</div>
+
+<div>
+  <h1>图片引入</h1>
+  <img src="../../../assets/images/img.png" alt="">
+  <img [src]="imgUrl" alt="">
+</div>

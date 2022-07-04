@@ -1,0 +1,39 @@
+<div>
+  <ul class="displays">
+    <li>姓名：<input type="text" id="name"></li>
+    <li>双向数据绑定：<input type="text" [(ngModel)]="peopleInfo.modelName"></li>
+    <li>
+      <input type="radio" value="男" name="sex" id="sex1" [(ngModel)]="peopleInfo.sex"><label for="sex1"></label> 男
+      <input type="radio" value="女" name="sex" id="sex2" [(ngModel)]="peopleInfo.sex"><label for="sex2"></label> 女
+    </li>
+    <li>
+      城市：
+      <select name="city" id="city" [(ngModel)]="peopleInfo.city">
+        <option [value]="item" *ngFor="let item of peopleInfo.cityList">{{item}}</option>
+      </select>
+    </li>
+    <li>
+      爱好：
+      <span *ngFor="let item of peopleInfo.hobby;let key=index">
+        <input type="checkbox" [id]="'check'+key" [(ngModel)]="item.checked"><label
+          for="'check'+key">{{item.hobbayName}}</label>
+      </span>
+    </li>
+    <li>
+        备注：
+        <textarea name="mark" id="mark" cols="30" rows="3" [(ngModel)]="peopleInfo.mark"></textarea>
+    </li>
+  </ul>
+  <button (click)="doSubmit()">获取表单的内容</button>
+  <div class="json">
+    <span>{{peopleInfo | json}}</span>
+  </div>
+  <div class="displays">
+    <p>双向数据绑定(姓名) <span style="color: blueviolet;">{{peopleInfo.modelName}}</span> </p>
+    <p>双向数据绑定(性别) <span style="color: rgb(43, 63, 173);">{{peopleInfo.sex}}</span> </p>
+    <p>双向数据绑定(城市) <span style="color: rgb(40, 148, 85);">{{peopleInfo.city}}</span> </p>
+    <p>双向数据绑定(爱好) <br> <span style="color: rgb(245, 124, 140);">{{peopleInfo.hobby | json}}</span> </p>
+    <p>双向数据绑定(备注) <br> <span style="color: rgb(207, 181, 124);">{{peopleInfo.mark}}</span> </p>
+  </div>
+
+</div>
