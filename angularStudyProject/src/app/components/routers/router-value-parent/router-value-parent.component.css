@@ -1,0 +1,12 @@
+li {
+    list-style: none;
+}
+
+.way {
+    float: left;
+}
+
+.route_value_parent {
+    height: calc(25vh);
+    margin: 0 auto;
+}

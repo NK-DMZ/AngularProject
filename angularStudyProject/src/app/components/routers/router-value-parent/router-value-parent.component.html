@@ -1,0 +1,22 @@
+<div class="route_value_parent">
+    <p>router-value-parent works!</p>
+    <a [routerLink]="['/routeValueChild']">跳转到路由传值子组件</a>
+    <div class="way">
+        <h2>get传值</h2>
+        <ul>
+            <li *ngFor="let item of list;let key = index">
+                <!-- get传值 -->
+                <a [routerLink]="['/routeValueChild']" [queryParams]="{aid:key}">{{key}}-{{item}}</a>
+            </li>
+        </ul>
+    </div>
+    <div class="way">
+        <h2>动态路由</h2>
+        <ul>
+            <li *ngFor="let item of list;let key = index">
+                <!-- get传值 -->
+                <a [routerLink]="['/routeValueChildDynamic',key]">{{key}}-{{item}}</a>
+            </li>
+        </ul>
+    </div>
+</div>

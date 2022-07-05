@@ -1,8 +1,0 @@
-/* You can add global styles to this file, and also import other style files */
-
-
-body{
-    width: 100%;
-    overflow-x: hidden;
-}
-/* 这个是让页面显示100%宽度，超过就隐藏，在dom操作中transition组件有用到 */

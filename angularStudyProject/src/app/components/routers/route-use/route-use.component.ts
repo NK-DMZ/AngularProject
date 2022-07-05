@@ -16,6 +16,7 @@ export class RouteUseComponent implements OnInit {
   5.选中时激活css样式  <br>
     routerLinkActive="active"  <br>
   `
+
   constructor() { }
 
   ngOnInit(): void {

@@ -7,8 +7,11 @@
 }
 .route_use{
   width: 100%;
-  height: calc(40vh);
+  height: calc(120vh);
 }
 .active{
   color: aqua;
+}
+.way{
+  background-color: aliceblue;
 }

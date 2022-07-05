@@ -1,0 +1,17 @@
+.tip{
+    text-align: left;
+    width: 30%;
+    margin: auto;
+    color: red;
+}
+.childvalue{
+    height: calc(25vh);
+}
+.explain{
+    text-align: left;
+    margin: 0 auto;
+    width: 30%;
+}
+.b{
+    color: blueviolet;
+}

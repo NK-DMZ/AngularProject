@@ -34,6 +34,9 @@ import { RouteOneComponent } from './components/routers/route-one/route-one.comp
 import { RouteTwoComponent } from './components/routers/route-two/route-two.component';
 import { RouteThreeComponent } from './components/routers/route-three/route-three.component';
 import { RouteUseComponent } from './components/routers/route-use/route-use.component';
+import { RouterValueParentComponent } from './components/routers/router-value-parent/router-value-parent.component';
+import { RouterValueChildComponent } from './components/routers/router-value-child/router-value-child.component';
+import { RouterValueChildDynamicComponent } from './components/routers/router-value-child-dynamic/router-value-child-dynamic.component';
 
 @NgModule({
   declarations: [
@@ -63,7 +66,10 @@ import { RouteUseComponent } from './components/routers/route-use/route-use.comp
     RouteOneComponent,
     RouteTwoComponent,
     RouteThreeComponent,
-    RouteUseComponent
+    RouteUseComponent,
+    RouterValueParentComponent,
+    RouterValueChildComponent,
+    RouterValueChildDynamicComponent
   ],
   imports: [
     BrowserModule,
