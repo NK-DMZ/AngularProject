@@ -14,3 +14,6 @@
   margin-top: calc(-2.5vh);
   background-color: rgb(168, 224, 168);
 }
+.nestedroute{
+    clear: both;
+}

@@ -1,0 +1,2 @@
+这个文件夹里面的组件用于学习嵌套路由
+news和products是父组件，展示在头部，下面的newone、newtwo、productone、producttwo跟随父组件进行变化

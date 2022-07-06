@@ -1,5 +1,5 @@
 .route_use a{
-  margin: calc(15vh);
+  margin: calc(5vh);
 }
 .route_use p{
   text-align: left;
@@ -7,7 +7,7 @@
 }
 .route_use{
   width: 100%;
-  height: calc(120vh);
+  height: calc(85vh);
 }
 .active{
   color: aqua;

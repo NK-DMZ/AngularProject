@@ -37,6 +37,15 @@ import { RouteUseComponent } from './components/routers/route-use/route-use.comp
 import { RouterValueParentComponent } from './components/routers/router-value-parent/router-value-parent.component';
 import { RouterValueChildComponent } from './components/routers/router-value-child/router-value-child.component';
 import { RouterValueChildDynamicComponent } from './components/routers/router-value-child-dynamic/router-value-child-dynamic.component';
+import { RouterValueChildJsComponent } from './components/routers/router-value-child-js/router-value-child-js.component';
+import { RouterValueParentJsComponent } from './components/routers/router-value-parent-js/router-value-parent-js.component';
+import { NewsComponent } from './components/nestedRoute/news/news.component';
+import { ProductsComponent } from './components/nestedRoute/products/products.component';
+import { ProductoneComponent } from './components/nestedRoute/productone/productone.component';
+import { ProducttwoComponent } from './components/nestedRoute/producttwo/producttwo.component';
+import { NewoneComponent } from './components/nestedRoute/newone/newone.component';
+import { NewtwoComponent } from './components/nestedRoute/newtwo/newtwo.component';
+import { NestedRouteComponent } from './components/nestedRoute/nested-route/nested-route.component';
 
 @NgModule({
   declarations: [
@@ -69,7 +78,16 @@ import { RouterValueChildDynamicComponent } from './components/routers/router-va
     RouteUseComponent,
     RouterValueParentComponent,
     RouterValueChildComponent,
-    RouterValueChildDynamicComponent
+    RouterValueChildDynamicComponent,
+    RouterValueChildJsComponent,
+    RouterValueParentJsComponent,
+    NewsComponent,
+    ProductsComponent,
+    ProductoneComponent,
+    ProducttwoComponent,
+    NewoneComponent,
+    NewtwoComponent,
+    NestedRouteComponent
   ],
   imports: [
     BrowserModule,

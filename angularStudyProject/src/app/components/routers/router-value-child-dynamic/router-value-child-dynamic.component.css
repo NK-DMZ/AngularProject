@@ -1,3 +1,6 @@
 .childValueDynamic{
     height: calc(25vh);
+    text-align: left;
+    width: 40%;
+    margin: auto;
 }

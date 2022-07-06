@@ -1,0 +1,23 @@
+<p>router-value-child-js works!</p>
+<div class="content_text">
+    <h3>动态路由</h3>
+    <p>
+        <b>1.js跳转</b><br>
+            1.1.引入声明模块 <br>
+            import &lcub; Router &rcub; from '@angular/router'; <br>
+            constructor(public router:Router) &lcub; &rcub; <br>
+            1.2.函数中使用：<br>
+            <i><b> 动态路由跳转</b></i><br>
+            this.router.navigate(['/routeValueChildJs/','123']) <br>
+            <b><i>普通路由跳转</i></b><br>
+            this.router.navigate(['/routeOne']) <br>
+            
+        <b>2.get跳转</b><br>
+            2.1.主体方法一样，在参数中要给一个对象<br>
+            let  queryParams:NavigationExtras = &lcub;<br>
+                queryParams:&lcub;'aid':"gorouteValueChild函数运行"&rcub;<br>
+                &rcub;<br>
+              this.router.navigate(['/routeValueChild'],queryParams) <br>
+    </p>
+</div>
+<!-- &lcub; &rcub;  -->

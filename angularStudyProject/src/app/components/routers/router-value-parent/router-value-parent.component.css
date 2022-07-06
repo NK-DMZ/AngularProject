@@ -3,7 +3,8 @@ li {
 }
 
 .way {
-    float: left;
+    /* float: left; */
+    margin: auto;
 }
 
 .route_value_parent {
