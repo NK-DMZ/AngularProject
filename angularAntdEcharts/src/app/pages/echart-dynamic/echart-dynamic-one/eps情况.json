@@ -1,0 +1,15 @@
+{
+    "code": 200,
+    "message": "成功!",
+    "data": {
+        "epsState":true,
+        "epsInfo": {
+            "max_input": 120,
+            "avg_input": 50,
+            "max_parse": 70,
+            "avg_parse": 90,
+            "max_es": 77,
+            "avg_es": 40
+        }
+    }
+}

@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
+import { WorkplaceRoutingModule } from './workplace-routing.module';
+
 import { CommonModule } from '@angular/common';
 import { WorkplaceComponent } from './workplace.component';
-
 
 
 @NgModule({
@@ -9,7 +10,7 @@ import { WorkplaceComponent } from './workplace.component';
     WorkplaceComponent,
   ],
   imports: [
-    CommonModule
+    CommonModule,WorkplaceRoutingModule
   ]
 })
 export class WorkplaceModule { }

@@ -8,7 +8,11 @@ const routes: Routes = [
   { path: 'form', loadChildren: () => import('./pages/form/form.module').then(m => m.FormModule) },
   {
     path:'workplace',component:WorkplaceComponent
-  }
+  },
+  // {
+  //   path:'dynamic',component:EchartDynamicComponent
+  // },
+  { path: 'dynamic', loadChildren: () => import('./pages/echart-dynamic/echart-dynamic.module').then(m => m.EchartDynamicModule) },
 ];
 
 @NgModule({

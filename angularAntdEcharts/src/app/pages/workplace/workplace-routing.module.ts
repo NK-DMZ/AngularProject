@@ -13,7 +13,7 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class FormRoutingModule { }
+export class WorkplaceRoutingModule { }
 
 // 模块路由需要创建，根路由需要修改
 // <a routerLink="/workplace">Workplace</a>  需要修改
