@@ -24,20 +24,22 @@ export class WorkplaceComponent implements OnInit {
   base = +new Date();
   oneDay = 5 * 1000;
   data = [[this.base, Math.random() * 300]];
+  now = new Date();
+  value = Math.random() * 100;
   fun() {
-    let now = new Date();
-    for (let i = 1; this.data.length < 20; i++) {
-      now = new Date((this.base += this.oneDay));
-      this.data.push([+now, Math.round((Math.random() - 0.5) * 20 + this.data[i - 1][1])]);
+    for (let i = 1; i < 20; i++) {
+      this.now = new Date((this.base += this.oneDay));
+      // this.data.push([+this.now, Math.round((Math.random() - 0.5) * 20 + this.data[i - 1][1])]);
+      this.data.push(this.randomData());
     }
     setInterval(() => {
       this.data.shift();
-      
+      this.data.push(this.randomData());
       this.epsEcharts.setOption({
         series: [
           {
             data: this.data
-          }
+          },
         ]
       });
     }, 5000);
@@ -86,19 +88,20 @@ export class WorkplaceComponent implements OnInit {
     ],
     series: [
       {
-        // name: 'Fake Data',
-        // type: 'line',
-        // smooth: true,
-        // symbol: 'none',
-        // areaStyle: {},
-        // data: this.data
         name: 'Fake Data',
         type: 'line',
         showSymbol: false,
         data: this.data
-      }
+      },
     ]
   };
+
+  randomData() {
+    this.now = new Date(+this.now + this.oneDay);
+    this.value = this.value + Math.random() * 20 - 10;
+    return ([+this.now, this.value])
+  }
+
 
 
   // data = [];
