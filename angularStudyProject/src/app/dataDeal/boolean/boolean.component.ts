@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./boolean.component.css']
 })
 export class BooleanComponent implements OnInit {
-  public flag:boolean = true;
+  public flag:boolean = false;
   public orderStatus:number = 1;
   public attrColor:string = "pink";
 

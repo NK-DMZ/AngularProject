@@ -6,7 +6,7 @@ import { WorkplaceComponent } from './workplace.component';
 
 @NgModule({
   declarations: [
-    WorkplaceComponent
+    WorkplaceComponent,
   ],
   imports: [
     CommonModule

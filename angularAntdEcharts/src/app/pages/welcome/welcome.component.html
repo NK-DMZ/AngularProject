@@ -1,25 +1,26 @@
 <div>
-    <h1>你好呀！这是展示了使用antd中的表格</h1>
-    <nz-table #basicTable [nzData]="listOfData">
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Age</th>
-          <th>Address</th>
-          <th>Action</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let data of basicTable.data">
-          <td>{{ data.name }}</td>
-          <td>{{ data.age }}</td>
-          <td>{{ data.address }}</td>
-          <td>
-            <a>Action 一 {{ data.name }}</a>
-            <a>Delete</a>
-          </td>
-        </tr>
-      </tbody>
-    </nz-table>
-    <app-ectarts-test></app-ectarts-test>
-  </div>
+  <h1>你好呀！这是展示了使用antd中的表格</h1>
+  <nz-table #basicTable [nzData]="listOfDataOne">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Address</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of basicTable.data">
+        <td>{{ data.name }}</td>
+        <td>{{ data.age }}</td>
+        <td>{{ data.address }}</td>
+        <td>
+          <a>Action 一 {{ data.name }}</a>
+          <a>Delete</a>
+        </td>
+      </tr>
+    </tbody>
+  </nz-table>
+  <app-ectarts-test></app-ectarts-test>
+  <hr>
+</div>

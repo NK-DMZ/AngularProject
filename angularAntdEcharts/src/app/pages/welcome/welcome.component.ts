@@ -13,7 +13,7 @@ interface Person {
 })
 export class WelcomeComponent implements OnInit {
 
-  listOfData: Person[] = [
+  listOfDataOne: Person[] = [
     {
       key: '1',
       name: 'John Brown',
