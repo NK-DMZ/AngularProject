@@ -12,7 +12,8 @@ import { LineDirective } from './echart-dynamic-two/line.directive';
 
 @NgModule({
   imports: [
-    CommonModule,EchartDynamicRoutingModule
+    CommonModule,
+    EchartDynamicRoutingModule
   ],
   declarations: [
     EchartDynamicComponent,

@@ -12,28 +12,21 @@
       </a>
     </div>
     <ul nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
-      <li nz-submenu nzOpen nzTitle="Dashboard" nzIcon="dashboard">
+      <li nz-submenu nzOpen nzTitle="antd" nzIcon="dashboard">
         <ul>
           <li nz-menu-item nzMatchRouter>
-            <a routerLink="/welcome">Welcome</a>
+            <a routerLink="/welcome">antd表格</a>
           </li>
           <li nz-menu-item nzMatchRouter>
-            <a>Monitor</a>
-          </li>
-          <li nz-menu-item nzMatchRouter>
-            <a routerLink="/workplace">Workplace</a>
-          </li>
-        </ul>
-      </li>
-      <li nz-submenu nzOpen nzTitle="Form" nzIcon="form">
-        <ul>
-          <li nz-menu-item nzMatchRouter>
-            <a routerLink="/form">Basic Form</a>
+            <a routerLink="/workplace">Workplace(空)</a>
           </li>
         </ul>
       </li>
       <li nz-submenu nzOpen nzTitle="图表" nzIcon="form">
         <ul>
+          <li nz-menu-item nzMatchRouter>
+            <a routerLink="/echartsuse">echarts基本使用</a>
+          </li>
           <li nz-menu-item nzMatchRouter>
             <a routerLink="/dynamic">echarts动态图表数据</a>
           </li>

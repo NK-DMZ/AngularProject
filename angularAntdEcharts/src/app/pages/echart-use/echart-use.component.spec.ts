@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { EctartsTestComponent } from './ectarts-test.component';
+import { EchartUseComponent } from './echart-use.component';
 
-describe('EctartsTestComponent', () => {
-  let component: EctartsTestComponent;
-  let fixture: ComponentFixture<EctartsTestComponent>;
+describe('EchartUseComponent', () => {
+  let component: EchartUseComponent;
+  let fixture: ComponentFixture<EchartUseComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ EctartsTestComponent ]
+      declarations: [ EchartUseComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(EctartsTestComponent);
+    fixture = TestBed.createComponent(EchartUseComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

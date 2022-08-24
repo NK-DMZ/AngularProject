@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { FormComponent } from './form.component';
+import { EchartUseComponent } from './echart-use.component';
 
 const routes: Routes = [
-  { path: '', component: FormComponent },
+  { path: '', component: EchartUseComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class FormRoutingModule { }
+export class EchartUseRoutingModule { }

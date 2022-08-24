@@ -5,13 +5,10 @@ import { WorkplaceComponent } from './pages/workplace/workplace.component';
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/welcome' },
   { path: 'welcome', loadChildren: () => import('./pages/welcome/welcome.module').then(m => m.WelcomeModule) },
-  { path: 'form', loadChildren: () => import('./pages/form/form.module').then(m => m.FormModule) },
   {
-    path:'workplace',component:WorkplaceComponent
+    path: 'workplace', component: WorkplaceComponent
   },
-  // {
-  //   path:'dynamic',component:EchartDynamicComponent
-  // },
+  { path: 'echartsuse', loadChildren: () => import('./pages/echart-use/echart-use.module').then(m => m.EchartUseModule) },
   { path: 'dynamic', loadChildren: () => import('./pages/echart-dynamic/echart-dynamic.module').then(m => m.EchartDynamicModule) },
 ];
 
