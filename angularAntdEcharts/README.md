@@ -55,7 +55,7 @@ ng new angularAntdEcharts
 打开运行项目
 ng serve --port 0 --open
 
-## 使用 antd 框架
+# 使用 antd 框架
 
 ng add ng-zorro-antd
 -yes
@@ -213,19 +213,20 @@ exports: [RouterModule]
 export class EchartDynamicRoutingModule { }
 
 ## 5.在模块 module 文件进行引入路由和组件
+
 echart-use.module.ts 引入
 import { EchartUseComponent } from './pages/echart-use/echart-use.component';
 import { EchartUseComponent } from './echart-use.component';
 @NgModule({
-  imports: [
-    CommonModule,
-    EchartUseRoutingModule
-  ],
-  declarations: [
-    EchartUseComponent,
-    ViewChildComponent,
-    IdComponent,
-  ],
+imports: [
+CommonModule,
+EchartUseRoutingModule
+],
+declarations: [
+EchartUseComponent,
+ViewChildComponent,
+IdComponent,
+],
 })
 
 ## 6.创建子模块
@@ -233,5 +234,23 @@ import { EchartUseComponent } from './echart-use.component';
 ng g component pages/echart-use/viewChild --module=echart-use
 
 ## 7.在父组件使用
+
 ## 注意：
-如果模块冲突，删除AppModule主模块下的组件引用
+
+如果模块冲突，删除 AppModule 主模块下的组件引用
+
+# 修改启动端口
+
+默认启动 4200，在 package.json 的"start": "ng serve --open --port 4000"进行指定
+
+# vscode 插件
+
+## Turbo Console Log
+
+快捷添加 console.log，一键 注释 / 启用 / 删除 所有 console.log。
+ctrl + alt + l 选中变量之后，使用这个快捷键生成 console.log
+alt + shift + c 注释所有 console.log
+alt + shift + u 启用所有 console.log
+alt + shift + d 删除所有 console.log
+
+# 快速定位文档末尾
