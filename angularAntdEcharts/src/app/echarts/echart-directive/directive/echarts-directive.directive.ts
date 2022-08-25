@@ -16,10 +16,10 @@ export class EchartsDirectiveDirective {
     public http: HttpClient,
     public el: ElementRef
   ) {
-    this.chart = init(this.el.nativeElement);
   }
 
   ngAfterViewInit(): void {
+    this.chart = init(this.el.nativeElement);
     this.chart.setOption(this._assembleOptions());
     fromEvent(window, 'resize')
       .pipe(
@@ -40,7 +40,7 @@ export class EchartsDirectiveDirective {
   private _assembleOptions(): EChartsOption {
     return {
       title: {
-        text: '指令的使用'
+        text: '指令的基本使用'
       },
       xAxis: {
         type: 'category',

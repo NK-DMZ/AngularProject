@@ -16,11 +16,10 @@ export class DataDirectiveDirective {
   constructor(
     public http: HttpClient,
     public el: ElementRef
-  ) {
-    this.chart = init(this.el.nativeElement);
-  }
+  ) {}
 
   ngAfterViewInit(): void {
+    this.chart = init(this.el.nativeElement);
     this.chart.setOption(this._assembleOptions());
 
     fromEvent(window, 'resize')
@@ -65,7 +64,7 @@ export class DataDirectiveDirective {
   private _assembleOptions(): EChartsOption {
     return {
       title: {
-        text: '内存使用情况'
+        text: '指令内http获取数据'
       },
       tooltip: {
         trigger: 'item'

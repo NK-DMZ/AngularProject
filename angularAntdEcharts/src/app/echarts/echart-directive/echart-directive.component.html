@@ -1,5 +1,17 @@
-<p>指令的基本使用</p>
-<div appEchartsDirective style="width: 1600px; height: 350px;">
-</div>
-<div appDataDirective style="width: 1600px; height: 350px;">
+<h1>echarts指令的基本使用</h1>
+<p>
+    1.在目录下创建指令 ng g directive dataDirective <br>
+    2.如果没有在module文件中进行引入需要进行引入 <br>
+    3.在html文件中使用指令,样例如下 <br>
+    4.在指令ts文件中进行编写代码,基本版使用参考echarts-directive.directive.ts文件 <br>
+    ngAfterViewInit生命周期初始化,建立数据 <br>
+    ngOnDestroy生命周期销毁指令 <br>、
+    _assembleOptions函数 EChartsOption内容 <br>
+</p>
+
+<div class="charts">
+    <div appEchartsDirective class="echart">
+    </div>
+    <div appDataDirective class="echart">
+    </div>
 </div>
