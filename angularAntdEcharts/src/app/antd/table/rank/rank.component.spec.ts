@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { EchartDirectiveComponent } from './echart-directive.component';
+import { RankComponent } from './rank.component';
 
-describe('EchartDirectiveComponent', () => {
-  let component: EchartDirectiveComponent;
-  let fixture: ComponentFixture<EchartDirectiveComponent>;
+describe('RankComponent', () => {
+  let component: RankComponent;
+  let fixture: ComponentFixture<RankComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ EchartDirectiveComponent ]
+      declarations: [ RankComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(EchartDirectiveComponent);
+    fixture = TestBed.createComponent(RankComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

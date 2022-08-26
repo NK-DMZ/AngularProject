@@ -3,11 +3,11 @@ import { Directive, ElementRef } from '@angular/core';
 import { EChartsOption, ECharts, init } from 'echarts';
 import { fromEvent, Subject } from 'rxjs';
 import { debounceTime, takeUntil } from 'rxjs/operators';
-
 @Directive({
-  selector: '[appEchartsDirective]'
+  selector: '[appBasicDirective]'
 })
-export class EchartsDirectiveDirective {
+export class BasicDirectiveDirective {
+
   chart: ECharts;
   destroy$ = new Subject();
   simulatedData = [6, 7, 8, 9, 8]
@@ -57,4 +57,5 @@ export class EchartsDirectiveDirective {
       ]
     };
   }
+
 }

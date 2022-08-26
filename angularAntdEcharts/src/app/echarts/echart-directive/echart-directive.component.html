@@ -1,16 +1,17 @@
 <h1>echarts指令的基本使用</h1>
 <p>
-    1.在目录下创建指令 ng g directive dataDirective <br>
-    2.如果没有在module文件中进行引入需要进行引入 <br>
-    3.在html文件中使用指令,样例如下 <br>
-    4.在指令ts文件中进行编写代码,基本版使用参考echarts-directive.directive.ts文件 <br>
+    <b>1.</b> 在目录下创建指令 ng g directive dataDirective <br>
+    <b>2.</b>如果没有在module文件中进行引入需要进行引入 <br>
+    <b>3.</b>在html文件中使用指令,样例如下 <br>
+    <b>4.</b>在指令ts文件中进行编写代码,基本版使用参考basic-directive.directive.ts文件 <br>
     ngAfterViewInit生命周期初始化,建立数据 <br>
-    ngOnDestroy生命周期销毁指令 <br>、
+    ngOnDestroy生命周期销毁指令 <br>
     _assembleOptions函数 EChartsOption内容 <br>
+    <b>5.</b>data-directive.directive.ts文件是通过get请求获取本地json数据 <br>
 </p>
 
 <div class="charts">
-    <div appEchartsDirective class="echart">
+    <div appBasicDirective class="echart">
     </div>
     <div appDataDirective class="echart">
     </div>

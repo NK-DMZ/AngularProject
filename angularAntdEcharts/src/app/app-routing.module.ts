@@ -4,6 +4,7 @@ import { WorkplaceComponent } from './antd/workplace/workplace.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/welcome' },
+  { path: 'table', loadChildren: () => import('./antd/table/table.module').then(m => m.TableModule) },
   { path: 'welcome', loadChildren: () => import('./antd/welcome/welcome.module').then(m => m.WelcomeModule) },
   {
     path: 'workplace', component: WorkplaceComponent
