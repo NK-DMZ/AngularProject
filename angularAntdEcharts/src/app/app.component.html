@@ -11,7 +11,7 @@
         <h1>Ant Design Of Angular</h1>
       </a>
     </div>
-    <ul nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
+    <ul nz-menu nzTheme="dark" nzMode="inline" >
       <li nz-submenu nzOpen nzTitle="antd" nzIcon="dashboard">
         <ul>
           <li nz-menu-item nzMatchRouter>
@@ -35,6 +35,12 @@
           </li>
           <li nz-menu-item nzMatchRouter>
             <a routerLink="/directive">echarts指令</a>
+          </li>
+          <li nz-menu-item nzMatchRouter>
+            <a routerLink="/echartchild">echarts父组件传值给子组件</a>
+          </li>
+          <li nz-menu-item nzMatchRouter>
+            <a routerLink="/liquidfill">echarts水球图</a>
           </li>
         </ul>
       </li>

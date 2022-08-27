@@ -3,9 +3,8 @@
     "message": "成功!",
     "data": {
         "cpuAndStorageState":true,
-        "cpuUseRate": 93.7,
         "allStorage": 125,
         "usedStorage": 73,
-        "avaiStorage":52
+        "availableStorage":52
     }
 }

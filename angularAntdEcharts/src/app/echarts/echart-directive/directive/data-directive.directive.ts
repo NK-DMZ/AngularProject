@@ -10,7 +10,7 @@ import { debounceTime, takeUntil } from 'rxjs/operators';
 export class DataDirectiveDirective {
   allStorage = 0
   usedStorage = 0
-  avaiStorage = 0
+  availableStorage = 0
   chart: ECharts;
   destroy$ = new Subject();
   constructor(
@@ -43,8 +43,8 @@ export class DataDirectiveDirective {
     this.http.get('assets/data-directive.json').subscribe((response:any) =>{
       let res = response.data
       this.usedStorage = res.usedStorage
-      this.avaiStorage = res.avaiStorage
-      this._setData([this.usedStorage, this.avaiStorage,]);
+      this.availableStorage = res.availableStorage
+      this._setData([this.usedStorage, this.availableStorage,]);
     })
   }
 

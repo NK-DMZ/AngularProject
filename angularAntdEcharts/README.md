@@ -253,4 +253,7 @@ alt + shift + c 注释所有 console.log
 alt + shift + u 启用所有 console.log
 alt + shift + d 删除所有 console.log
 
+# TSLint规范
+
+
 # 快速定位文档末尾

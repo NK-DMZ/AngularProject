@@ -12,6 +12,8 @@ const routes: Routes = [
   { path: 'echartsuse', loadChildren: () => import('./echarts/echart-use/echart-use.module').then(m => m.EchartUseModule) },
   { path: 'dynamic', loadChildren: () => import('./echarts/echart-dynamic/echart-dynamic.module').then(m => m.EchartDynamicModule) },
   { path: 'directive', loadChildren: () => import('./echarts/echart-directive/echart-directive.module').then(m => m.EchartDirectiveModule) },
+  { path: 'echartchild', loadChildren: () => import('./echarts/echart-child/echart-child.module').then(m => m.EchartChildModule) },
+  { path: 'liquidfill', loadChildren: () => import('./echarts/echart-liquidfill/echart-liquidfill.module').then(m => m.EchartLiquidfillModule) },
 ];
 
 @NgModule({
