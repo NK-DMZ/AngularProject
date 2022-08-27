@@ -110,6 +110,7 @@ export class EchartLiquidfillComponent implements OnInit {
     this.EChartsOption.series[0].data = arr;
     let tempDisk = Number((this.res.usedStorage / 100).toFixed(2))
     this.EChartsOption.series[1].data = [tempDisk];
+    // this.EChartsOption.series[1].data = [0.4,0.5];//多重波浪
     this.echart.setOption(this.EChartsOption);
 
   }
