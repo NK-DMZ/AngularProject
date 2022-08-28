@@ -7,7 +7,7 @@ import { ECharts, init } from 'echarts';
   styleUrls: ['./id.component.less']
 })
 export class IdComponent implements OnInit {
-  public echartsObj!: ECharts;
+  public echarts!: ECharts;
   EChartsOption = {
     xAxis: {
       type: 'category',
@@ -33,8 +33,8 @@ export class IdComponent implements OnInit {
 
   getHtml() {
     let test: any = document.getElementById('id');
-    this.echartsObj = init(test);
-    this.echartsObj.setOption(this.EChartsOption);
+    this.echarts = init(test);
+    this.echarts.setOption(this.EChartsOption);
   }
 
 }

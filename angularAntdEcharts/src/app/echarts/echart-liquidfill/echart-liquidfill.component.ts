@@ -66,16 +66,23 @@ export class EchartLiquidfillComponent implements OnInit {
       },
       {
         name: "内存占用",
+        // 内环圈
         outline: {
           show: false,
         },
+        // 背景样式设置
+        // backgroundStyle: {
+        //   borderWidth: 5,
+        //   borderColor: 'red',
+        //   color: 'yellow'
+        // },
         radius: "60%",
         type: "liquidFill",
         data: [
           2,
           {
-              value: 0.6,
-              direction: 'left', //波浪方向
+            value: 0.6,
+            direction: 'left', //波浪方向
           },
         ],
         amplitude: '15 %', //波浪的振幅

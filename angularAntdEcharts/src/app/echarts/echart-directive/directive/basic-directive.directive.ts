@@ -1,4 +1,3 @@
-import { HttpClient } from '@angular/common/http';
 import { Directive, ElementRef } from '@angular/core';
 import { EChartsOption, ECharts, init } from 'echarts';
 import { fromEvent, Subject } from 'rxjs';
@@ -13,10 +12,8 @@ export class BasicDirectiveDirective {
   simulatedData = [6, 7, 8, 9, 8]
 
   constructor(
-    public http: HttpClient,
     public el: ElementRef
-  ) {
-  }
+  ) { }
 
   ngAfterViewInit(): void {
     this.chart = init(this.el.nativeElement);
