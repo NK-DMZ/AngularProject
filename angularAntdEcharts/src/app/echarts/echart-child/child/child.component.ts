@@ -15,10 +15,10 @@ export class ChildComponent implements OnInit {
     this.echart = init(this.echartdom.nativeElement);
   }
 
-  ngOnChanges(changes: SimpleChanges) {   
-    const current = changes.res && changes.res.currentValue;    
+  ngOnChanges(changes: SimpleChanges) {
+    const current = changes.res && changes.res.currentValue;
     if ('availableStorage' in current) {
-      this.freshEcharts(); 
+      this.freshEcharts();
     }
   }
 

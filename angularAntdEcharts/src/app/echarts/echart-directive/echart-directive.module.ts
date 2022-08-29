@@ -5,8 +5,6 @@ import { EchartDirectiveComponent } from './echart-directive.component';
 import { DataDirectiveDirective } from './directive/data-directive.directive';
 import { BasicDirectiveDirective } from './directive/basic-directive.directive';
 
-
-
 @NgModule({
   declarations: [
     EchartDirectiveComponent,
@@ -18,4 +16,5 @@ import { BasicDirectiveDirective } from './directive/basic-directive.directive';
     EchartDirectiveRoutingModule,
   ]
 })
+
 export class EchartDirectiveModule { }

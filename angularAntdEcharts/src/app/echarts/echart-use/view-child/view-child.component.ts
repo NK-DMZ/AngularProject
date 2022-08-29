@@ -7,12 +7,12 @@ import { ECharts, init } from 'echarts';
 })
 export class ViewChildComponent implements OnInit {
   @ViewChild('echrts') echrts: any;
-  echartsEcharts!: ECharts;
   constructor() { }
-
+  
   ngOnInit(): void {
   }
-
+  
+  echartsEcharts!: ECharts;
   echartsEChartsOption = {
     xAxis: {
       type: 'category',
