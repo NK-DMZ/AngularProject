@@ -3,6 +3,7 @@
 
   <div>
     <h2>*ngIf图片使用</h2>
+    <button (click)="changeFlag()">改变图片显示</button> <br><br>
     <img *ngIf="flag" src="../../../assets/images/boolean (1).png" alt="">
     <img *ngIf="!flag" src="../../../assets/images/boolean (2).png" alt="">
     <hr>
@@ -32,11 +33,17 @@
   </div>
 
   <div>
+    <h2>hidden使用</h2>
+    <button (click)="changeHidden()">改变hidden显示</button> <br><br>
+    <p>hidden的值显示:<span [hidden]="hidden">hidden</span></p>
+  </div>
+
+  <div>
     <h2>ngClass使用</h2>
     <div [ngClass]="{'red':!flag,'grey':flag}">ngClass演示</div>
     <br>
-    <ul *ngFor="let item of arrlist;let key = index;"
-      [ngClass]="{'red':key==0,'grey':key==1,'orange':key==2,'lawngreen':key==3,'sienna':key==4}">
+    <ul *ngFor="let item of arrlist;let key = index;" [ngClass]="{'red':(key===0),'grey':(key===1),
+      'orange':(key===2),'lawngreen':(key===3),'sienna':(key===4)}">
       <li>{{key+1}}---{{item}}</li>
     </ul>
     <hr>

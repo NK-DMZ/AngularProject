@@ -6,9 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./boolean.component.css']
 })
 export class BooleanComponent implements OnInit {
-  public flag:boolean = false;
-  public orderStatus:number = 1;
-  public attrColor:string = "pink";
+  public flag: boolean = false;
+  public hidden: boolean = false;
+  public orderStatus: number = 1;
+  public attrColor: string = "pink";
 
   public arrlist: string[] = [
     '我不是枪神',
@@ -17,7 +18,8 @@ export class BooleanComponent implements OnInit {
     '熊出没',
     '不要忘记我爱你',
   ];
-  public arrColor:any[] = [
+
+  public arrColor: any[] = [
     "'red':key == 0",
     "'grey':key == 1",
     "'orange':key == 2",
@@ -26,5 +28,13 @@ export class BooleanComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void { }
+  changeFlag() {
+    this.flag = !this.flag
+    console.log(this.flag);
+  }
+  changeHidden() {
+    this.hidden = !this.hidden
+    console.log(this.hidden);
+  }
 
 }

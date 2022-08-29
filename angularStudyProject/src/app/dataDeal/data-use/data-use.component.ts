@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DataUseComponent implements OnInit {
   // 定义属性
-  public student: string = "student！";
+  public student: string = "student!";
   public htmlContent: string = "<h5>这是h5标签</h5>";
   public chip: string = '---------------------------------\
 -------------------------------------------------------\
