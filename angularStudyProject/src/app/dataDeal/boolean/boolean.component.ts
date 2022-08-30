@@ -10,6 +10,7 @@ export class BooleanComponent implements OnInit {
   public hidden: boolean = false;
   public orderStatus: number = 1;
   public attrColor: string = "pink";
+  style = "'color':red"
 
   public arrlist: string[] = [
     '我不是枪神',
