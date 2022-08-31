@@ -26,9 +26,9 @@ export class DomActionsComponent implements OnInit {
 
     // 获取不到dom节点
     /*
-      let oBox1:any = document.getElementById('box1');
-      console.log(oBox1.innerHTML);
-      oBox.style.color = "blue"
+    let oBox1: any = document.getElementById('box1');
+    console.log(oBox1.innerHTML);
+    oBox.style.color = "blue"
     */
   }
 
@@ -38,7 +38,7 @@ export class DomActionsComponent implements OnInit {
   ngAfterViewInit(): void {
     // 利用原生angular代码进行操作
     let oBox1: any = document.getElementById('box1');
-    // console.log(`这是domAction中的oBox1:${oBox1.innerHTML}`);
+    console.log(`这是domAction中的oBox1:${oBox1.innerHTML}`);
     oBox1.style.color = "blue"
 
     // 利用ViewChild进行操作
