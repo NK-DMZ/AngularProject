@@ -32,6 +32,7 @@ export class BooleanComponent implements OnInit {
   changeFlag() {
     this.flag = !this.flag
     console.log(this.flag);
+    
   }
   changeHidden() {
     this.hidden = !this.hidden
