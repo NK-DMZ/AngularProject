@@ -1,2 +1,32 @@
 <p>echart-analysis works!</p>
-<div #echrts id="echrtsView"></div>
+
+<div #parent style="height:100%;overflow: hidden;">
+    <ul style="padding: 10px 0px" #scroller>
+        <!-- [ngStyle]="{'overflow':'hidden','display':dataS.length===0?'none':'block','box-sizing':'border-box'}"> -->
+
+        <li *ngFor="let item of dataS" class="dynamic-percent">
+            <span class="country text-ellipsis" title="{{ item.name }}">{{ item.name
+                }}</span>
+            <p class="count">
+                <span class="percent" [style.width]="item.percent"></span>
+            </p>
+            <span class="right-count">{{ item.count }}</span>
+        </li>
+    </ul>
+</div>
+
+
+
+<!-- <div #parent style="height:100%;overflow: hidden;">
+    <ul style="padding: 10px 0px" #scroller
+        [ngStyle]="{'overflow':'hidden','display':dataS.length===0?'none':'block','box-sizing':'border-box'}">
+        <li *ngFor="let item of dataS" class="dynamic-percent">
+            <span class="country text-ellipsis" title="{{ item.name | aviodNull }}">{{ item.name
+                | aviodNull }}</span>
+            <p class="count">
+                <span class="percent" [style.width]="item.percent"></span>
+            </p>
+            <span class="right-count">{{ item.count | aviodNull }}</span>
+        </li>
+    </ul>
+</div> -->
