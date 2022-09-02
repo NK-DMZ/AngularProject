@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="app-sub-card">
+    <div *ngIf="!loading && dataS.length > 0" class="source-ip">
+      <ul>
+        <li *ngFor="let item of dataS">
+          <a class="country href-text" href="javascript:;" (click)="detailHref(item.ip)">{{filterIpAssets(item.ip)
+            }}</a>
+        </li>
+      </ul>
+      <ul>
+        <li *ngFor="let item of dataS" class="countryul">
+          <span class="country country-specail text-ellipsis" title="{{item.country }}">{{item.country }}</span>
+          <img src="{{item.img}}" alt="" class="imgstyle" *ngIf="item.country_code && item.country_code.length > 0">
+        </li>
+      </ul>
+      <ul>
+        <li *ngFor="let item of dataS" class="progress"> 
+          <p class="count">
+            <span class="percent" [style.width]="item.percent"></span>
+          </p>
+          <span class="right-count">{{item.count}}</span>
+        </li>
+      </ul>
+    </div>
+    <!-- <app-no-data *ngIf="!loading && dataS.length === 0"></app-no-data> -->
+    <!-- <nz-spin [nzSpinning]="loading" *ngIf="loading"></nz-spin> -->
+  </div>
+</div>

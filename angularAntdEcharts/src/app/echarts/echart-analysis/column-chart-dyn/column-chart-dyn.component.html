@@ -1,0 +1,14 @@
+<div #parent style="overflow: hidden;background-color: #09152d;">
+    <ul style="padding: 10px 0px" #scroller>
+        <!-- [ngStyle]="{'overflow':'hidden','display':dataS.length===0?'none':'block','box-sizing':'border-box'}"> -->
+
+        <li *ngFor="let item of dataS" class="dynamic-percent">
+            <span class="country text-ellipsis" title="{{ item.name }}">{{ item.name
+                }}</span>
+            <p class="count">
+                <span class="percent" [style.width]="item.percent"></span>
+            </p>
+            <span class="right-count">{{ item.count }}</span>
+        </li>
+    </ul>
+</div>
