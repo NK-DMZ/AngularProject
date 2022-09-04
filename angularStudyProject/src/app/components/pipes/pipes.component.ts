@@ -6,10 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./pipes.component.css']
 })
 export class PipesComponent implements OnInit {
-
   public pipesTime:any = new Date();
-  public pipesString:string = 'I like English!'
+  public pipesString:string = 'hi,Jack!'
   public pipesMoney:number = 55
+  public pipesNum:number = 1505
   public pipesNumOne:number = 505
   public pipesNumTwo:number = 505.946811462
   public pipesNumThree:number = 505.946819462

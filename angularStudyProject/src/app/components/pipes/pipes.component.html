@@ -2,34 +2,42 @@
     <h1>管道</h1>
     <a href="https://zhuanlan.zhihu.com/p/390173382">知乎别人的解释</a>
     <h3>date</h3>
-    <p><span style="color: burlywood;">new Date:</span> {{pipesTime}}</p>
     <p>
-        <span style="color: burlywood;">管道写法：</span> 
-        {{pipesTime | date:'yyyy-MM-dd  HH:mm:ss'}} <br>
-        {{pipesTime | date:'yy-M-d  H:m:s a'}} 
+        <span style="color: burlywood;">new Date:</span> {{pipesTime}}
+    </p>
+    <p>
+        <span style="color: burlywood;">管道写法：</span> <br>
+        {{pipesTime | date:'yyyy-MM-dd HH:mm:ss'}} <br>
+        {{pipesTime | date:'yy-M-d H:m:s a'}}
         <span style="margin:0  50px;">|</span>
-        {{pipesTime | date:'EEEE,y-MMMM-d'}} 
+        {{pipesTime | date:'EEEE,y-MMMM-d'}}
         <span style="margin:0  50px;">|</span>
-        {{pipesTime | date:'EEE,y-MMM-d'}} 
+        {{pipesTime | date:'EEE,y-MMM-d'}}
         <br><br>
         <a href="https://angular.cn/api/common/DatePipe">日期格式</a>
-    </p> <hr>
+    </p>
+    <hr>
 
     <h3>大小写</h3>
     <p>{{pipesString | uppercase }}</p>
-    <p>{{pipesString | lowercase }}</p> <hr>
+    <p>{{pipesString | lowercase }}</p>
+    <hr>
 
     <h3>把数字转换成货币字符串</h3>
-    <p>{{pipesMoney | currency }}</p> <hr>
+    <p>{{pipesMoney | currency }}</p>
+    <hr>
 
     <h3>把数字转换成带小数点的字符串</h3>
-    <p>{{pipesNumOne}}---{{pipesNumOne | number:'1.3-5' }}</p>
+    <p>{{pipesNum}}---{{pipesNum | number:'1.3-5' }}</p>
+    <!-- <p>{{pipesNumOne}}---{{pipesNumOne | number:'1.3-5' }}</p>
     <p>{{pipesNumTwo}}---{{pipesNumTwo | number:'1.3-5' }}</p>
-    <p>{{pipesNumThree}}---{{pipesNumTwo | number:'1.3-5' }}</p> <hr>
+    <p>{{pipesNumThree}}---{{pipesNumTwo | number:'1.3-5' }}</p> -->
+    <hr>
 
     <h3>把数字转换成百分比字符串</h3>
-    <p>{{pipesTrans}}---{{pipesTrans | percent }}</p> <hr>
-    
+    <p>{{pipesTrans}}---{{pipesTrans | percent }}</p>
+    <hr>
+
     <h3>通过串联管道应用两种格式</h3>
-    <p>{{pipesTime}}---{{pipesTime | date | uppercase }}</p>
+    <p>{{pipesTime}} --- {{pipesTime | date | uppercase }}</p>
 </div>

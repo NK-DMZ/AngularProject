@@ -355,6 +355,204 @@ changeColor(event:any){
 # 六.组件引用
 angularAntdEcharts项目对这一知识点有详细说明
 
+# 七.管道
+## 管道的作用
+用于在模板表单式中对给定的数据进行转换和格式化，并输出处理后的数据，如：转换日期格式、货币格式、数字精度、过滤列表数据等。\
+在模板中使用“|”符号来使用管道，转换参数是以“:”符号接在管道名称之后，如果由多个参数，可以顺序添加。如果需要同时使用多个管道处理数据可以按照转换顺序用“|”符号在尾部继续添加，
+    如：\
+    data | myCustomPipe: params | myCustomPipe: params | myCustomPipe
+## 管道中的数据变更检测方式
+管道会在每次dom事件之后（鼠标移动、计时器、服务器响应、按键）对绑定的需要转换的数据的变更进行检测，而且针对基础数据类型和应用类型的检测规则有所不同。
+- a、针对基础数据类型的检测：对String\Number\Boolean\null\undefined\Symbol的变更，也称之为纯变更，采用的是纯管道（给定输入会返回固定的输出），会直接重新执行管道并返回转换结果
+-  b、针对引用数据类型的检测：对Object\Function\Date\Array\Map\Set等的变更，也称之为非纯变更，采用的是非纯管道（即需要对数据进行深层次的检索来确定是否变更）
+- 注意：在使用纯管道来处理引用类型的数据时，可以采取返回一个全新的数据对象来激活纯管道的变更检测机制，而非只更改数据内部的给别属性或者添加内容
+ ## 管道的使用
+ [详细使用](https://zhuanlan.zhihu.com/p/390173382)
 
+ [日期格式](https://angular.cn/api/common/DatePipe)
+ ### 日期
+ 代码：
+```
+public pipesTime:any = new Date();
 
+<span style="color: burlywood;">new Date:</span> {{pipesTime}}
+{{pipesTime | date:'yyyy-MM-dd  HH:mm:ss'}} <br>
+{{pipesTime | date:'yy-M-d  H:m:s a'}} 
+<span style="margin:0  50px;">|</span>
+{{pipesTime | date:'EEEE,y-MMMM-d'}} 
+<span style="margin:0  50px;">|</span>
+{{pipesTime | date:'EEE,y-MMM-d'}}  {{pipesTime | date:'yyyy-MM-dd  HH:mm:ss'}} <br>
+{{pipesTime | date:'yy-M-d  H:m:s a'}} 
+<span style="margin:0  50px;">|</span>
+{{pipesTime | date:'EEEE,y-MMMM-d'}} 
+<span style="margin:0  50px;">|</span>
+{{pipesTime | date:'EEE,y-MMM-d'}} 
+```
+效果：
+![](./image/7.1.%E7%AE%A1%E9%81%93%E6%97%A5%E6%9C%9F.jpg)
 
+### 大小写
+```
+public pipesString:string = 'hi,Jack!'
+
+<p>{{pipesString | uppercase }}</p>
+<p>{{pipesString | lowercase }}</p>
+```
+### 把数字转换成货币字符串
+```
+public pipesMoney:number = 55
+<p>{{pipesMoney | currency }}</p>
+```
+
+### 把数字转换成带小数点的字符串
+```
+public pipesNum:number = 1505
+<p>{{pipesNum}}---{{pipesNum | number:'1.3-5' }}</p>
+```
+
+### 把数字转换成百分比字符串
+```
+public pipesTrans:number = 0.14
+<p>{{pipesTrans}}---{{pipesTrans | percent }}</p>
+```
+
+### 通过串联管道应用两种格式
+```
+public pipesTrans:number = 0.14
+<p>{{pipesTrans}}---{{pipesTrans | percent }}</p>
+```
+### 运行结果
+![](./image/7.2.%E7%AE%A1%E9%81%93.jpg)
+
+# 八.组件传值
+## 子组件通过Input修饰器获取父组件的属性与方法
+1.在父组件html使用子组件，并用[]=""进行传值
+```
+父组件html
+
+<h2>父子传值(子组件通过Input修饰器获取父组件的属性与方法)， parent-one 是父组件， child-one 是子组件</h2>
+<app-child-one [title]="title" [msg]="msg" [run]="run" [parent_One]="this"></app-child-one>
+<p>
+  这里的title与msg都是父组件中的属性,这么直接传到子组件,run是父组件的方法，home是将父组件作为对象传递过去；
+</p>
+```
+2.子组件通过使用input接受父组件的传值，需要先import引入再进行使用，可以在ts文件进行加工，也可以直接在子组件html中直接使用。对其进行操作可以在ngAfterViewInit()生命周期函数。
+```
+子组件ts文件
+import { Component, OnInit, Input  } from '@angular/core';
+
+// 接收父组件传过来的值
+@Input() title:any;
+@Input() msg:any;
+@Input() run:any
+@Input() parent_One:any
+childRun():void{
+  this.run();
+  console.log('传递home对象进行操作');    
+  this.parent_One.work()
+}
+```
+
++ 父组件核心语句在于 []=""
++ 子组件核心语句在于 @Input()
+
+![](./image/8.1.%E5%AD%90%E7%BB%84%E4%BB%B6%E9%80%9A%E8%BF%87input%E4%BC%A0%E5%80%BC.jpg)
+![](./image/8.2.input%E6%96%B9%E6%B3%95%E4%BC%A0%E5%80%BC%E7%BB%93%E6%9E%9C.jpg)
+
+## 子组件向父组件传值ViewChild
+父组件利用 ViewChild 实现调用子组件的属性和方法。
+1.父组件html中使用子组件，在子组件中通过 # 获取元素属性
+```
+父组件html页面
+<h2>子父传值(父组件利用 ViewChild 实现调用子组件的属性和方法)，news是父组件，footer是子组件</h2>
+<app-child-two #footer></app-child-two>
+<button (click)="getChildMsg()">获取子组件footer的msg</button>
+<button (click)="getChildTake()">获取子组件footer的childTake方法</button>
+```
+2.父组件ts文件中需要引入ViewChild获取子组件。
+```
+父组件ts文件
+@ViewChild('footer') footer: any;
+getChildMsg() {
+  // 获取footer子组件的数据
+  console.log(this.footer.childMsg);
+}
+
+getChildTake() {
+  this.footer.childTake()
+}
+```
+
+```
+子组件html页面
+<div class="childTwo">
+    <h2>子组件footer</h2>
+    <p>{{childMsg}}</p>
+</div>
+```
+```
+子组件ts文件
+public childMsg:string = "这是子组件footer的内容"
+
+childTake(){
+  console.log('这是子组件footer的childTake方法');    
+}
+```
+
+![](./image/8.3.viewchild%E8%B0%83%E7%94%A8%E5%AD%90%E7%BB%84%E4%BB%B6%E7%9A%84%E5%B1%9E%E6%80%A7%E5%92%8C%E6%96%B9%E6%B3%95.jpg)
+
+![](./image/8.4.viewchild%E8%BF%90%E8%A1%8C%E7%BB%93%E6%9E%9C.jpg)
+
+## 子组件传值给父组件Output()+EventEmitter
+1.首先在子组件引入,Output,EventEmitter
+```
+import { Component, OnInit,Output,EventEmitter } from '@angular/core';
+```
+2.然后声明一个outer变量等于EventEmitter
+```
+@Output() private outer = new EventEmitter();
+```
+定义子组件其他使用的内容
+```
+public msChildThree = "这是第三种事件驱动传值的子组件"
+
+fun1(){
+  console.log('这是fun1方法');    
+}
+
+sendParent(){
+  // this.outer.emit('这是子组件的数据')
+  this.outer.emit(this.msChildThree)
+}
+```
+3.通过EventEmitter广播数据
+```
+子组件html页面
+<button (click)="sendParent()">通过@outer给父组件广播事件</button>
+
+```
+4.在父组件监听广播事件
+```
+父组件html
+<app-child-three (outer)="funChild($event)"></app-child-three>
+
+父组件ts文件
+funChild(e:any){
+  // 子组件给父组件广播的数据
+  console.log(e);
+  console.log('这是父组件中的方法，e是子组件广播给父组件的数据');       
+}
+```
+![](./image/8.5.output%E5%AD%90%E4%BC%A0%E7%88%B6.jpg)
+![](./image/8.6.output%E8%BF%90%E8%A1%8C%E7%BB%93%E6%9E%9C.jpg)
+
+# 九.异步编程
+## 1、回调函数
+
+## 2、事件监听/发布订阅
+
+## 3、Promise
+
+## 4、Rxjs
+
+# 快速定位
