@@ -13,3 +13,6 @@ https://www.jianshu.com/p/fa11491c8e13
 let scale = d3.scaleLinear().domain([1,5]).range([0,100])
 d3.scaleBand()并不是一个连续性的比例尺，domain()中使用一个数组，不过range()需要是一个连续域。
 d3.scaleBand()只针对domain()中的数据集映射相应的值。
+
+## api中文使用手册
+https://github.com/d3/d3/wiki/API--中文手册
