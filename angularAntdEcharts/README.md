@@ -253,7 +253,12 @@ alt + shift + c 注释所有 console.log
 alt + shift + u 启用所有 console.log
 alt + shift + d 删除所有 console.log
 
+## translate
+有道智云翻译API https://ai.youdao.com/console/#/(需要付费)
+配置有道appKey和appSecret
+
 # TSLint规范
+
 
 
 # 快速定位文档末尾
