@@ -2,6 +2,9 @@
 
 angular 12.1.1
 antd 12.1.1
+echarts 5.3.3
+echarts-liquidfill 3.1.0
+d3 7.1.1
 
 # 创建新的组件
 
