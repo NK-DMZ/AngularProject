@@ -547,12 +547,293 @@ funChild(e:any){
 ![](./image/8.6.output%E8%BF%90%E8%A1%8C%E7%BB%93%E6%9E%9C.jpg)
 
 # 九.异步编程
+## 同步方法获取数据
+函数直接调用就是同步方法获取数据
+```
+<button (click)="synchronization()">同步方法获取数据</button>
+
+synchronization() {
+  // 1. 同步方法
+  let data = this.request.getData();
+  console.log(data);
+}
+
+getData(){
+  return "Request中的数据进行获取！"
+}
+```
+![](./image/9.1.%E5%90%8C%E6%AD%A5%E8%B0%83%E7%94%A8%E5%87%BD%E6%95%B0%E6%89%A7%E8%A1%8C.jpg)
+
 ## 1、回调函数
+Callback函数调用请求；
+getCallbackData函数通过延时函数模拟异步请求，获取数据后回传给函数。
+
+```
+<button (click)="Callback()">回调方法获取数据</button>
+
+Callback() {
+  // 2.callback通过回调方法获取异步数据
+  this.request.getCallbackData((data: any) => {
+    console.log(data);
+  })
+}
+
+getCallbackData(cb:any){
+  setTimeout(() => {
+    let userName:string = "回调方法";
+    cb(userName);
+  }, 3000);
+}
+```
+![](./image/9.2.%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0%E6%89%A7%E8%A1%8C%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE.jpg)
 
 ## 2、事件监听/发布订阅
+这一部分在前面讲父子传值的时候有说明过，这里不详细说明。
+```
+```
 
 ## 3、Promise
+通过promise这种方法很常见，不详细说明。
+```
+<button (click)="promiseFun()">Promise方法获取数据</button>
+
+promiseFun() {
+  // 3.Promise获取异步数据
+  let promiseData = this.request.getPromiseData();
+  promiseData.then((data) => {
+    console.log(data);
+  })
+}
+
+getPromiseData() {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      let msg = "Promise函数"
+      resolve(msg);
+    }, 3000);
+  })
+}
+```
+![](./image/9.3.%E4%BD%BF%E7%94%A8promise%E5%87%BD%E6%95%B0%E6%89%A7%E8%A1%8C%E7%BB%93%E6%9E%9C.jpg)
 
 ## 4、Rxjs
+rxjs可以像promise一样使用，使用点注意：
++ 1.rxjdata.subscribe(()=>{})获取数据方式
++ 2.需要new一个Observable对象
++ 3.observer.next(rxjsname)继续执行
++ 4.还需要进行引入
 
+![](./image/9.4.%E4%BD%BF%E7%94%A8rxjs%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE.jpg)
+```
+<button (click)="rxjsFun()">RxJs 方法获取数据</button>
+
+import { Observable } from 'rxjs';
+
+// 4.rxjs处理异步
+rxjsFun() {
+  let rxjdata = this.request.getRxjsData();
+  rxjdata.subscribe(data => {
+    console.log(data);
+  })
+}
+
+getRxjsData(){
+  return new Observable(observer =>{
+    setTimeout(() => {
+      let rxjsname = "Rxjs"
+      observer.next(rxjsname)
+    }, 3000);
+  })
+}
+```
+
+Promise的创建之后，动作是无法撤回的。Observable不一样，动作可以通过unsbscribe()方法中途撤回，而且 Observable在内部做了智能的处理。这里的关键语句是 recallVar.unsubscribe();这行语句取消了获取数据。
+\
+![](./image/9.5.rxjs%E6%92%A4%E9%94%80%E8%AF%B7%E6%B1%82.jpg)
+```
+<button (click)="recall()">RxJs 方法获取数据</button>
+
+recall() {
+  console.log('rxjs撤回函数执行，不会打印获取的数据');
+  let rxjdata = this.request.getRxjsData();
+  let recallVar = rxjdata.subscribe(data => {
+    console.log(data);
+  })
+  setTimeout(() => {
+    recallVar.unsubscribe();
+  }, 1000);
+}
+```
+
+这里的连续调用执行其实和执行单词没有太大区别，只是调用的函数不一样，setTimeout只执行一次，setInterval可以一直执行。
+![](./image/9.6.rxjs%E6%8C%81%E7%BB%AD%E8%B0%83%E7%94%A8.jpg)
+```
+<button (click)="rxjsCount()">RxJs 方法多次调用</button>
+
+rxjsCount() {
+  let rxjscountSum = this.request.getRxjsCount();
+  rxjscountSum.subscribe(data =>{
+    console.log(data);      
+  })
+}
+
+getRxjsCount() {
+  let count = 0;
+  return new Observable<any>(observable => {
+    setInterval(() => {
+      count++;
+      let msg = 'count连续执行' + count;
+      observable.next(msg);
+    }, 1500)
+  })
+}
+```
+
+# 十.数据获取
+## get使用
++ 1.先在app.module.ts中引入 
+```
+import { HttpClientModule } from '@angular/common/http'
+```
++ 2.然后在
+```
+ imports: [
+        BrowserModule,
+        AppRoutingModule,
+        FormsModule,
+        HttpClientModule
+],
+```
+中加入 HttpClientModule
++ 3.再在primordial.component.ts文件中引入
+```
+import { HttpClient } from '@angular/common/http';
+```
++ 4.接着在这个文件中constructor中引入：
+```
+constructor(public http:HttpClient) { }
+```
++ 5.然后在函数getFun中进行使用
+```
+getFun() {
+  let api = "https://tenapi.cn/resou/"
+  this.http.get(api).subscribe((response: any) => {
+    this.get_list_subscribe = response.list;
+    this.title = "get原生使用(微博热榜)"
+    this.post_resText = "";
+    this.jsonp_resText = "";
+    this.axios_list = [];
+  })
+}
+```
+![](./image/10.1.%E9%80%9A%E8%BF%87get%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE.jpg)
+
+## post使用
++ 1.先在app.module.ts中引入 
+```
+import { HttpClientModule } from '@angular/common/http'
+```
++ 2.在imports中引入,方法同上，如果用get已经引入这里就不需要操作
++ 3.在primordial.component.ts文件中引入
+```
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+```
++ 4.函数postFun进行使用
+```
+postFun() {
+  const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) }
+  let api = 'http://127.0.0.1/postuse'
+  this.http.post(api, { "url": "baidu.com" }, httpOptions).subscribe((res: any) => {
+    this.post_resText = res.msg;
+    this.title = "post原生使用"
+    this.get_list_subscribe = [];
+    this.jsonp_resText = "";
+    this.axios_list = [];
+  })
+}
+```
+![](./image/10.2.post%E8%AF%B7%E6%B1%82%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%9C%E8%BE%93%E5%87%BA.jpg)
+
+## jsonp使用
++ 1.在app.module.ts中引入
+```
+import { HttpClientJsonpModule } from '@angular/common/http';
+```
++ 2.在imports中引入
++ 3.函数jsonpFun中使用
+```
+jsonpFun() {
+  // jsonp请求，服务器必须支持jsonp
+  let api = "http://127.0.0.1:3000/getscript"
+  this.http.jsonp(api, 'callback').subscribe((res) => {
+    this.jsonp_resText = res
+    this.title = "jsonp原生使用"
+    this.get_list_subscribe = [];
+    this.post_resText = "";
+    this.axios_list = [];
+  })
+}
+```
+![](./image/10.3.jsonp%E5%87%BD%E6%95%B0%E4%BD%BF%E7%94%A8.jpg)
+## axios使用
+### 安装axios
+```
+npm install axios --save
+```
+
+### 方案1:
++ 1.创建http服务
+```
+ng g service services/httpservice
+```
++ 2.在httpservice.service.ts引入
+```
+import axios from 'axios'
+```
++ 3.axiosGet函数中使用\
+这里的使用和promise在其他语言中的使用差不多
+```
+axiosGet(api: any) {
+  return new Promise((resolve, reject) => {
+    axios.get(api).then(function (response) {
+      resolve(response)
+    }).catch(function (error) {
+      console.log(error);
+    })
+  })
+}
+```
++ 4.在app.module.ts引入
+```
+import { HttpserviceService } from './services/httpservice.service';
+```
++ 5.在app.module.ts中的providers进行导入
+```providers: [HttpserviceService],```
++ 6.在primordial.component.ts（使用axios的组件）中引入
+```
+import { HttpserviceService } from '../../services/httpservice.service';
+```
++ 7.在constructor中加入
+```
+constructor(public http: HttpClient,public httpService:HttpserviceService) { }
+```
++ 8.primordial.component.ts在文件中进行使用\
+先定义api接口，然后使用，获取数据后进行修改页面内容
+```
+axiosFunPackaging() {
+  let api = "https://tenapi.cn/zhihuresou/"
+  this.httpService.axiosGet(api).then((res: any) => {
+    this.axios_list = res.data.list;
+    this.title = "axios封装使用(知乎热榜)"
+    this.get_list_subscribe = [];
+    this.post_resText = "";
+    this.jsonp_resText = "";
+  })
+}
+```
+![](./image/10.4.axios%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE.jpg)
+### 方案2:
++ 在用到的地方直接引入axios，大概步骤可以参照方案1。
+
+# 十一.路由使用
 # 快速定位

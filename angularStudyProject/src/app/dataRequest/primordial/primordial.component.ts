@@ -44,29 +44,23 @@ export class PrimordialComponent implements OnInit {
     ng g service services/httpservice  <br>
   2.在httpservice.service.ts引入  <br>
     import axios from 'axios'  <br>
-  4.axiosGet函数中使用  <br>
-  5.在app.module.ts引入  <br>
+  3.axiosGet函数中使用  <br>
+  4.在app.module.ts引入  <br>
     import { HttpserviceService } from './services/httpservice.service';  <br>
-  6.进行引入  <br>
+  5.进行引入  <br>
     providers: [HttpserviceService],  <br>
-  7.在primordial.component.ts中引入  <br>
+  6.在primordial.component.ts中引入  <br>
     import { HttpserviceService } from '../../services/httpservice.service';  <br>
-  8.在constructor中加入  <br>
+  7.在constructor中加入  <br>
     constructor(public http: HttpClient,public httpService:HttpserviceService) { }  <br>
   `
-
-
   public get_list_subscribe: any = [];
   public axios_list: any = [];
   public post_resText: any = ""
   public title: any = ""
   public jsonp_resText: any = ""
 
-
-
-  ngOnInit(): void {
-
-  }
+  ngOnInit(): void { }
 
   getFun() {
     let api = "https://tenapi.cn/resou/"
