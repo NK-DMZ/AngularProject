@@ -16,50 +16,35 @@ import { RouterValueParentJsComponent } from './components/routers/router-value-
 import { RouterValueParentComponent } from './components/routers/router-value-parent/router-value-parent.component';
 
 const routes: Routes = [
-  {
-    path: 'routeOne', component: RouteOneComponent
-  },
-  {
-    path: 'routeTwo', component: RouteTwoComponent
-  },
-  {
-    path: 'routeThree', component: RouteThreeComponent
-  },
-  {
-    path: 'routeValueParent', component: RouterValueParentComponent
-  },
-  {
-    path: 'routeValueChild', component: RouterValueChildComponent
-  },
-  {
-    path: 'routeValueChildDynamic', component: RouterValueChildDynamicComponent
-  },
-  {
-    path: 'routeValueParentJs', component: RouterValueParentJsComponent
-  },
-  {
-    path: 'routeValueChildJs/:aid', component: RouterValueChildJsComponent
-  },
+  { path: 'routeOne', component: RouteOneComponent },
+  { path: 'routeTwo', component: RouteTwoComponent },
+  { path: 'routeThree', component: RouteThreeComponent },
+  { path: 'routeValueParent', component: RouterValueParentComponent },
+  { path: 'routeValueChild', component: RouterValueChildComponent },
+  { path: 'routeValueChildDynamic', component: RouterValueChildDynamicComponent },
+  { path: 'routeValueParentJs', component: RouterValueParentJsComponent },
+  { path: 'routeValueChildJs/:aid', component: RouterValueChildJsComponent },
   // 未匹配到的路由都会跳转到这个组件
+  // { path: '', pathMatch: 'full', redirectTo: '/routeOne' },
   // {
   //   path: '**', redirectTo: 'routeOne'
   // },
   // 下面部分是路由嵌套部分
   {
-    path:'news',component:NewsComponent,
-    children:[
-      {path:'newone',component:NewoneComponent},
-      {path:'newtwo',component:NewtwoComponent},
+    path: 'news', component: NewsComponent,
+    children: [
+      { path: 'newone', component: NewoneComponent },
+      { path: 'newtwo', component: NewtwoComponent },
       // 未匹配路由时默认跳转
-      {path: '**', redirectTo: 'newone'}
+      { path: '**', redirectTo: 'newone' }
     ]
   },
   {
-    path:'products',component:ProductsComponent,
-    children:[
-      {path:'productone',component:ProductoneComponent},
-      {path:'producttwo',component:ProducttwoComponent},
-      {path: '**', redirectTo: 'productone'}
+    path: 'products', component: ProductsComponent,
+    children: [
+      { path: 'productone', component: ProductoneComponent },
+      { path: 'producttwo', component: ProducttwoComponent },
+      { path: '**', redirectTo: 'productone' }
     ]
   },
 ];

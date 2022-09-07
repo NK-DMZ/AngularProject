@@ -1,14 +1,36 @@
+# 前言
+
+基于项目进行实战归纳的angular学习文档，github地址：https://github.com/NK-DMZ/AngularProject。参照b站学习视频，部分地方对照官网参照进行理解性研究。
+
+## 项目部分截图
+
+### angularStudyProject
+
+![0.1.项目说明](D:\Project\AngularBasis\angularStudyProject\mdStudy\image\0.1.项目说明.png)
+
+![image-20220907160322932](C:\Users\Godk\AppData\Roaming\Typora\typora-user-images\image-20220907160322932.png)
+
+### angularAntdEcharts
+
+![0.3.项目说明](D:\Project\AngularBasis\angularStudyProject\mdStudy\image\0.3.项目说明.png)
+
+![0.4.项目说明](D:\Project\AngularBasis\angularStudyProject\mdStudy\image\0.5.项目说明.png)
+
+![0.5.项目说明](D:\Project\AngularBasis\angularStudyProject\mdStudy\image\0.4.项目说明.png)
+
 # 一.快速上手
+
 ## 官方文档
-https://angular.cn/ angular官网\
-https://ng.ant.design/docs/introduce/zh ng-zorro官网\
-https://www.tslang.cn/index.html ts官网\
+https://angular.cn/ angular官网
+https://ng.ant.design/docs/introduce/zh ng-zorro官网
+https://www.tslang.cn/index.html ts官网
 https://yarnpkg.com/getting-started/migration yarn官网
+
 ## 项目基础架构
 项目根目录下创建三个主要文件夹： 
 - `public`：用于存放项目的静态资源
 - `scripts` ：用于存放 webpack 的配置文件
-- `src` ：用于存放项目的代码文件\
+- `src` ：用于存放项目的代码文件
 为了区分开 webpack 的开发和生产环境，因此需要两套配置文件，这两套配置有很多地方是共通的，为了代码优雅，可以使用第三方包 `webpack-merge` 来将公共配置分别导入两套文件，因此需要在 `scripts` 目录下创建三个文件：
 - `webpack.common.js`：用于编写公共配置
 - `webpack.dev.js`：用于编写开发环境配置
@@ -64,29 +86,43 @@ module.exports = {
 }
 ```
 ## 创建新文件
-**Component(组件):**\
-npm run ng g component ./core/my-new-component\
-**Directive(指令):**\
-npm run ng g directive ./core/my-new-directive\
-**Pipe(管道):**\
-npm run ng g pipe ./core/my-new-pipe\
-**Service(服务):**\
-npm run ng g service ./core/my-new-service\
-**Class(类):**\
-npm run ng g class ./core/my-new-class\
-**Interface(接口):**\
-npm run ng g interface ./core/my-new-interface\
-**Enum(枚举):**\
-npm run ng g enum ./core/my-new-enum\
-**Module(模块):**\
-npm run ng g module ./core/my-module\
-这里说明一下，路由module没有创建指令，目前在study项目中创建的一个完整的组件包含组件（4个文件）、模块（1个文件）、路由模块（1个文件）。如图示：\
-![](./image/1.1.module%E6%8C%87%E4%BB%A4.png)\
+**Component(组件):**
+
+npm run ng g component ./core/my-new-component
+
+**Directive(指令):**
+
+npm run ng g directive ./core/my-new-directive
+**Pipe(管道):**
+
+npm run ng g pipe ./core/my-new-pipe
+**Service(服务):**
+
+npm run ng g service ./core/my-new-service
+**Class(类):**
+
+npm run ng g class ./core/my-new-class
+**Interface(接口):**
+
+npm run ng g interface ./core/my-new-interface
+**Enum(枚举):**
+
+npm run ng g enum ./core/my-new-enum
+**Module(模块):**
+
+npm run ng g module ./core/my-module
+
+这里说明一下，路由module没有创建指令，目前在study项目中创建的一个完整的组件包含组件（4个文件）、模块（1个文件）、路由模块（1个文件）。如图示：
+![](./image/1.1.module%E6%8C%87%E4%BB%A4.png)
 其中.html是写页面的，.less是写样式的，.ts是写页面逻辑的，-routing.module.ts是写路由的，module是写模块引入的，.spec.ts是测试文件。
 
+
+
 # 二.生命周期函数
-官网详细说明可以查阅 https://angular.cn/guide/lifecycle-hooks \
-Angular 会按以下顺序调用钩子方法：\
+
+官网详细说明可以查阅 https://angular.cn/guide/lifecycle-hooks 
+Angular 会按以下顺序调用钩子方法：
+
 | 序号 | 钩子方法 | 详细信息 |
 | :------| ------: | :------: |
 | 1 | ngOnChanges           | 当输入或输出绑定值更改时。  |
@@ -98,16 +134,20 @@ Angular 会按以下顺序调用钩子方法：\
 | 7 | ngAfterViewChecked    | 在每次检查组件视图之后。    |
 | 8 | ngOnDestroy           | 就在指令被销毁之           |
 |   |                       |                           |
-	
+
 上表如果不够直观可以看看下面项目中的输出展示，当我们启动页面时，生命周期依次执行。
-![](./image/2.1.%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E5%87%BD%E6%95%B0%E4%BE%9D%E6%AC%A1%E6%89%A7%E8%A1%8C.png)\
+![](./image/2.1.%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E5%87%BD%E6%95%B0%E4%BE%9D%E6%AC%A1%E6%89%A7%E8%A1%8C.png)
+
 如果我们修改页面数据再来看看执行了哪些生命周期函数：
 ![](./image/2.2.%E4%BF%AE%E6%94%B9%E5%80%BC%E6%97%B6%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E5%87%BD%E6%95%B0%E6%89%A7%E8%A1%8C.png)
 由程序执行可知ngDoCheck 方法、ngAfterContentChecked 方法、ngAfterViewChecked 方法在数值改变时会被执行。
 使用比较频繁的函数有：
 ngOnInit函数，用于数据请求；ngAfterViewInit函数，常用于echarts实例初始化；ngOnDestroy函数，用于指令中echarts实例的销毁。
 
+
+
 # 三.数据使用
+
 ## 标题  **[title]**
 ``` 
 public student: string = "student!";
@@ -136,7 +176,7 @@ public htmlContent: string = "<h5>这是h5标签</h5>";
 ```
 由图可见如果仅仅只是通过{{}}语法是无法让浏览器解析出html模板的，我们无论是用p标签、span标签还是h5标签都会解析成变量中的h5标签，而textarea解析的会带有自己的格式。
 
-![](./image/2.3.%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%A8%A1%E6%9D%BF%E8%A7%A3%E6%9E%90.jpg)\
+![](./image/2.3.%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%A8%A1%E6%9D%BF%E8%A7%A3%E6%9E%90.jpg)
 
 ## 图片引入   **[src]**
 ```
@@ -158,8 +198,9 @@ import { FormsModule } from '@angular/forms';
 ![](./image/2.6.%E5%8F%8C%E5%90%91%E6%95%B0%E6%8D%AE%E7%BB%91%E5%AE%9A.jpg)
 
 ## class类  **[ngClass]**
-[ngClass]="{'red':(key===0),'grey':(key===1),'orange':(key===2),'lawngreen':(key===3),'sienna':(key===4)}"\
+[ngClass]="{'red':(key===0),'grey':(key===1),'orange':(key===2),'lawngreen':(key===3),'sienna':(key===4)}"
 'red'是类名，后面的(key===0)其实就是TRUE和FALSE。
+
 ```
 <ul *ngFor="let item of arrlist;let key = index;" [ngClass]="{'red':(key===0),'grey':(key===1),'orange':(key===2),'lawngreen':(key===3),'sienna':(key===4)}">
     <li>{{key+1}}---{{item}}</li>
@@ -217,7 +258,10 @@ ngif与hidden的区别和v-if与v-show的区别一样，一个是直接让dom节
 NG表达式中禁止出现new关键字,NG表达式中JSON是undefined
 ![](./image/2.5.%E4%B8%8D%E8%83%BD%E5%87%BA%E7%8E%B0.jpg)
 
+
+
 # 四.DOM操作
+
 ## 原生js操作dom
 ```
 <div id="domHtml">
@@ -291,7 +335,10 @@ getClick() {
 ```
 ![](./image/4.5.%E6%93%8D%E4%BD%9C%E5%AD%90%E7%BB%84%E4%BB%B6.jpg)
 
+
+
 # 五.事件
+
 ## 普通事件
 html使用
 ```
@@ -329,10 +376,12 @@ keyupEvent(e:any){
   }
 }
 ```
-函数调用前\
+函数调用前
+
 ![](./image/5.2.%E4%BA%8B%E4%BB%B6%E8%B0%83%E7%94%A8%E5%89%8D.jpg)
 
-在第一个输入框修改值会触发keydown函数\
+在第一个输入框修改值会触发keydown函数
+
 ![](./image/5.3.%E4%BF%AE%E6%94%B9%E5%87%BD%E6%95%B0%E8%B0%83%E7%94%A8%E5%90%8E.jpg)
 
 在第二个对话框修改内容会触发keyupEvent函数，能清晰打印出e.target
@@ -352,14 +401,22 @@ changeColor(event:any){
 ```
 ![](./image/5.5.%E9%80%9A%E8%BF%87%E4%BA%8B%E4%BB%B6%E5%AF%B9%E8%B1%A1%E8%8E%B7%E5%8F%96dom%E8%BF%9B%E8%A1%8C%E4%BF%AE%E6%94%B9.jpg)
 
+
+
 # 六.组件引用
+
 angularAntdEcharts项目对这一知识点有详细说明
 
+
+
 # 七.管道
+
 ## 管道的作用
-用于在模板表单式中对给定的数据进行转换和格式化，并输出处理后的数据，如：转换日期格式、货币格式、数字精度、过滤列表数据等。\
+用于在模板表单式中对给定的数据进行转换和格式化，并输出处理后的数据，如：转换日期格式、货币格式、数字精度、过滤列表数据等。
+
 在模板中使用“|”符号来使用管道，转换参数是以“:”符号接在管道名称之后，如果由多个参数，可以顺序添加。如果需要同时使用多个管道处理数据可以按照转换顺序用“|”符号在尾部继续添加，
-    如：\
+    如：
+
     data | myCustomPipe: params | myCustomPipe: params | myCustomPipe
 ## 管道中的数据变更检测方式
 管道会在每次dom事件之后（鼠标移动、计时器、服务器响应、按键）对绑定的需要转换的数据的变更进行检测，而且针对基础数据类型和应用类型的检测规则有所不同。
@@ -424,7 +481,10 @@ public pipesTrans:number = 0.14
 ### 运行结果
 ![](./image/7.2.%E7%AE%A1%E9%81%93.jpg)
 
+
+
 # 八.组件传值
+
 ## 子组件通过Input修饰器获取父组件的属性与方法
 1.在父组件html使用子组件，并用[]=""进行传值
 ```
@@ -546,7 +606,10 @@ funChild(e:any){
 ![](./image/8.5.output%E5%AD%90%E4%BC%A0%E7%88%B6.jpg)
 ![](./image/8.6.output%E8%BF%90%E8%A1%8C%E7%BB%93%E6%9E%9C.jpg)
 
+
+
 # 九.异步编程
+
 ## 同步方法获取数据
 函数直接调用就是同步方法获取数据
 ```
@@ -590,6 +653,7 @@ getCallbackData(cb:any){
 ## 2、事件监听/发布订阅
 这一部分在前面讲父子传值的时候有说明过，这里不详细说明。
 ```
+
 ```
 
 ## 3、Promise
@@ -648,7 +712,7 @@ getRxjsData(){
 ```
 
 Promise的创建之后，动作是无法撤回的。Observable不一样，动作可以通过unsbscribe()方法中途撤回，而且 Observable在内部做了智能的处理。这里的关键语句是 recallVar.unsubscribe();这行语句取消了获取数据。
-\
+
 ![](./image/9.5.rxjs%E6%92%A4%E9%94%80%E8%AF%B7%E6%B1%82.jpg)
 ```
 <button (click)="recall()">RxJs 方法获取数据</button>
@@ -689,7 +753,10 @@ getRxjsCount() {
 }
 ```
 
+
+
 # 十.数据获取
+
 ## get使用
 + 1.先在app.module.ts中引入 
 ```
@@ -790,7 +857,8 @@ ng g service services/httpservice
 ```
 import axios from 'axios'
 ```
-+ 3.axiosGet函数中使用\
++ 3.axiosGet函数中使用
+
 这里的使用和promise在其他语言中的使用差不多
 ```
 axiosGet(api: any) {
@@ -817,7 +885,8 @@ import { HttpserviceService } from '../../services/httpservice.service';
 ```
 constructor(public http: HttpClient,public httpService:HttpserviceService) { }
 ```
-+ 8.primordial.component.ts在文件中进行使用\
++ 8.primordial.component.ts在文件中进行使用
+
 先定义api接口，然后使用，获取数据后进行修改页面内容
 ```
 axiosFunPackaging() {
@@ -835,6 +904,264 @@ axiosFunPackaging() {
 ### 方案2:
 + 在用到的地方直接引入axios，大概步骤可以参照方案1。
 
-# 十一.路由使用
+  
 
-# 快速定位
+# 十一.路由使用
+## 使用步骤
++ 1.创建组件
++ 2.在app.module.ts中挂载
++ 3.在app-routing.module.ts中进行挂载
+Routes中配置,有两个属性path和component
++ 4.匹配不到路由的时候加载组件
+```
+path: '**', redirectTo: 'routeOne'
+```
++ 5.选中时激活css样式
+routerLinkActive="active"
+
+## 一般情况使用
+这里拿app-routing.module.ts文件举例，前面是引入import，重点在于routes， ```{ path: '', pathMatch: 'full', redirectTo: '/app' }```,这行代码的含义是没有匹配到路由的话跳转到/app路由上。后一行代码的含义是在跳转到/app路由上加载AppComponent组件。
+
+```{ path: '', pathMatch: 'full', redirectTo: '/app' }```等同于```{ path: '**', redirectTo: 'app'}```
+```
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+import { AppComponent } from './app.component'
+const routes: Routes = [
+  { path: '', pathMatch: 'full', redirectTo: '/app' },
+  { path: 'app', component: AppComponent }
+];
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+export class AppRoutingModule { }
+```
+
+## 嵌套路由
+这里的核心是children路由数组。
+当选择到news路由后，不进行路由选择默认跳转到newone路由，加载NewoneComponent组件，选择newtwo路由会跳转到NewtwoComponent组件。
+```
+{
+  path: 'news', component: NewsComponent,
+  children: [
+    { path: 'newone', component: NewoneComponent },
+    { path: 'newtwo', component: NewtwoComponent },
+    // 未匹配路由时默认跳转
+    { path: '**', redirectTo: 'newone' }
+  ]
+},
+```
+
+## 路由传值父组件
+### 父组件get传值子组件
+1.父组件部分传值
+```
+<ul>
+    <li *ngFor="let item of list;let key = index">
+        <a [routerLink]="['/routeValueChildDynamic/']" [queryParams]="{aid:key}">{{key}}-{{item}}</a>
+        <!-- 也可以跳转路由，但无法传值 -->
+        <!-- <a [routerLink]="['/routeValueChildDynamic/',key]">{{key}}-{{item}}</a> -->
+    </li>
+</ul>
+```
+
+2.子组件接收
++ 2.1 在子组件先进行引入
+```
+import { ActivatedRoute } from '@angular/router';
+```
++ 2.2 constructor中引入  
+```
+constructor(public route: ActivatedRoute) { } 
+```
++ 2.3 ngOnInit中使用 
+```
+this.route.queryParams.subscribe((data) => {
+  console.log(data);
+});
+```
+
+### 动态路由传值
+需要在路由文件【app-routing.module.ts】进行配置
+
+1.配置动态路由(在router-value-parent.component.html)文件
+
+2.子组件接收
+  2.1 在子组件先进行引入
+  ```
+  import { ActivatedRoute } from '@angular/router';
+  ```
+  2.2 constructor中引入
+  ```
+  constructor(public route: ActivatedRoute) { }
+  ```
+  2.3 ngOnInit中使用
+  ```
+  this.route.queryParams.subscribe((data) => {
+    console.log(data);
+  });
+  ```
+
+
+
+# 十二.angular使用antd和echarts
+
+## 使用 antd 框架
+ng add ng-zorro-antd
+
+-yes
+
+-yes
+
+zh_cn
+
+sidemenu
+
+## antd 使用样例 ———— table
+### 创建 antd 模块
+```
+ng g module antd/table
+```
+### 创建 antd 模块下的组件
+```
+ng g component antd/table --module=app
+```
+
+### 在 table.module.ts 引入并 import
+NzTableModule是antd的表格组件，TableComponent是自身html组件。
+```
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { TableRoutingModule } from './table-routing.module';
+import { TableComponent } from './table.component';
+import { NzTableModule } from 'ng-zorro-antd/table';
+```
+
+#### 在 table.component.ts 中定义数据
+```
+interface Person {
+  key: string;
+  name: string;
+  age: number;
+  address: string;
+}
+
+listOfData: Person[] = [
+  {
+    key: '1',
+    name: 'John Brown',
+    age: 32,
+    address: 'New York No. 1 Lake Park',
+  },
+  {
+    key: '2',
+    name: 'Jim Green',
+    age: 42,
+    address: 'London No. 1 Lake Park',
+  },
+  {
+    key: '3',
+    name: 'Joe Black',
+    age: 32,
+    address: 'Sidney No. 1 Lake Park',
+  },
+];
+```
+
+#### 在 table.component.html 使用
+```
+<nz-table #basicTable [nzData]="listOfData">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Address</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of basicTable.data">
+      <td>{{ data.name }}</td>
+      <td>{{ data.age }}</td>
+      <td>{{ data.address }}</td>
+      <td>
+        <a>Action 一 {{ data.name }}</a>
+        <a>Delete</a>
+      </td>
+    </tr>
+  </tbody>
+</nz-table>
+```
+![](D:\Project\AngularBasis\angularStudyProject\mdStudy\image\12.1.antd在angular中的使用.png)
+
+
+## 使用 echarts
+```
+yarn add echarts
+```
++ 1.html中用ViewChild获取dom元素
+这里一定要给元素定义宽高。
+```<div #echrts id="echrtsView"></div>```
+
++ 2.在所使用的组件中引用
+ectarts-test.component.ts 文件中
+```
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { ECharts, init } from 'echarts';
+```
++ 3.ts文件中接收获取的dom
+```@ViewChild('echrts') echrts: any;```
+
++ 4.定义图表对象
+```echartsEcharts!: ECharts;```
+
++ 5.定义 EChartsOption 对象
+```
+echartsEChartsOption = {
+  xAxis: {
+    type: 'category',
+    data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+  },
+  yAxis: {
+    type: 'value'
+  },
+  series: [
+    {
+      data: [120, 200, 150, 80, 70, 110, 130],
+      type: 'bar',
+      showBackground: true,
+      backgroundStyle: {
+        color: 'rgba(180, 180, 180, 0.2)'
+      }
+    }
+  ]
+};
+```
+
++ 6.在生命周期中进行使用
+freshEcharts函数是对它进行数据更新，看实际情况决定是否使用。
+```
+ngAfterViewInit(): void {
+  this.echartsEcharts = init(this.echrts.nativeElement);
+  this.echartsEcharts.setOption(this.echartsEChartsOption);
+  // this.freshEcharts()
+}
+```
++ 7.更新数据
+```
+freshEcharts() {
+  // 修改数据
+  let arr = [];
+  for (let index = 0; index < 3; index++) {
+    arr.push(index);
+  }
+  // 修改数据
+
+  this.echartsEChartsOption.series[0].data = arr;
+  this.echartsEcharts.setOption(this.echartsEChartsOption);
+}
+```
+
+![12.2.echarts使用](D:\Project\AngularBasis\angularStudyProject\mdStudy\image\12.2.echarts使用.png)

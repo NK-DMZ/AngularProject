@@ -8,10 +8,10 @@ import { ECharts, init } from 'echarts';
 export class ViewChildComponent implements OnInit {
   @ViewChild('echrts') echrts: any;
   constructor() { }
-  
+
   ngOnInit(): void {
   }
-  
+
   echartsEcharts!: ECharts;
   echartsEChartsOption = {
     xAxis: {
@@ -40,10 +40,12 @@ export class ViewChildComponent implements OnInit {
   }
 
   freshEcharts() {
+    // 修改数据
     let arr = [];
     for (let index = 0; index < 3; index++) {
       arr.push(index);
     }
+    // 修改数据
 
     this.echartsEChartsOption.series[0].data = arr;
     this.echartsEcharts.setOption(this.echartsEChartsOption);
