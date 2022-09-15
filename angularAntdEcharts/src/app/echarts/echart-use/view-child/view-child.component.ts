@@ -16,10 +16,26 @@ export class ViewChildComponent implements OnInit {
   echartsEChartsOption = {
     xAxis: {
       type: 'category',
+      axisLabel: {
+        textStyle: {
+          color: '#54175'
+        },
+        interval: 'auto',
+        rotate: 45,
+        formatter: null
+      },
+      // data: ['异常资产数', '异常资产数', '异常资产数', '异常资产数', '异常资产数', '异常资产数', '异常资产数']
       data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
     },
     yAxis: {
       type: 'value'
+    },
+    grid: {
+      left: '15%',
+      right: '10%',
+      top: 35,
+      bottom: 20,
+      containLabel: true
     },
     series: [
       {
